@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Redis;
 
 Route::get('/home',[HomeController::class, 'LoadHomePage'])->middleware("auth:api");
 Route::get('/prato/{id}',[HomeController::class, 'PickAPrato'])->middleware("auth:api");
+Route::post('/testing-redis',[PedidosController::class, 'TestingRedis']);
 Route::post('/login',[AuthController::class, 'Login']);
 Route::post('/create-account',[UserController::class, 'CreateAccount']);
 

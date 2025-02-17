@@ -19,6 +19,8 @@ RUN apt-get update && \
 
 
 # Install PHP extensions
+
+
 RUN docker-php-ext-install pdo_mysql zip
 
 RUN echo "EnableSendfile Off" >> /etc/apache2/apache2.conf
@@ -31,6 +33,8 @@ COPY . /var/www/html
 WORKDIR /var/www/html
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+RUN composer require predis/predis
 
 RUN composer install
 # RUN php artisan key:generate

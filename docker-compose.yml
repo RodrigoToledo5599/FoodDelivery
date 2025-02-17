@@ -13,6 +13,16 @@ services:
     networks:
       - food-delivery
 
+  front:
+    container_name: FoodDeliveryFront
+    build: ./FoodDeliveryFront
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./FoodDeliveryFront/:/app
+      - /FoodDeliveryFront/node_modules
+    command: npm run start
+
   db:
     container_name: FoodDeliveryDB
     image: mysql:8.0

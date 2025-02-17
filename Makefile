@@ -1,11 +1,14 @@
 build:
-	docker-compose build --no-cache --force-rm
+	# docker-compose build --no-cache --force-rm
+	docker-compose build app
+	docker-compose build db
 
 create-network:
 	docker network create food-delivery
 
 up:
 	docker-compose up app -d
+	# docker-compose up front -d
 	docker-compose up db -d
 
 app-up:
@@ -35,10 +38,13 @@ db-seed:
 	docker exec FoodDeliveryBackApp php artisan db:seed --class=PratosSeeder
 	docker exec FoodDeliveryBackApp php artisan db:seed --class=UserSeeder
 
+redis-start:
+	docker run -d --name redis-stack --network=food-delivery -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+	docker exec -it redis-stack redis-cli
 
 
 
-do-it-all: # build it all and run it all at once with only this command
+do-it-all: # build it all
 	@make build
 	@make create-network
 	@make up
