@@ -1,0 +1,36 @@
+services:
+  app:
+    container_name: FoodDeliveryBackApp
+    build: ./FoodDeliveryBack
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./FoodDeliveryBack/:/var/www/html
+      - /var/www/html/vendor            # Exclude vendor directory from the host mount
+      - /var/www/html/storage          # Exclude storage directory from the host mount
+    depends_on:
+      - db
+    networks:
+      - food-delivery
+
+  db:
+    container_name: FoodDeliveryDB
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: FoodDeliveryBack
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - food-delivery
+
+networks:
+  food-delivery:
+    external: true
+    name: food-delivery
+
+volumes:
+  mysql_data:

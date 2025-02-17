@@ -1,0 +1,18 @@
+<app-header-bar></app-header-bar>
+<div class="all-content container">
+  <div *ngFor="let item of pratosList" class="grid-list">
+    <div class="serving-item">
+      <a routerLink="/prato/{{item.id}}" class="btn">
+        <div class="serving-item-data" href="#">
+          <div class="serving-image"></div>
+          <div class="serving-data">
+            <div class="title-price">
+              <p>{{item.name}}</p>
+              <p>R$: {{item.price}}</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+
+
+.container .item{
+    width: 30vw;
+    border: solid 1px black;
+    display:flex;
+    justify-content: center;
+
+}
+
+.container button a{
+    text-decoration: none;
+    color: white;
+}
+.container button a:hover{
+    text-decoration: underline;
+}

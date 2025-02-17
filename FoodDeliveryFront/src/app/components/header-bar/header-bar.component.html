@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-row justify-content-between" id="navzao">
+  <div class="container">
+    <a class="logo-zone" routerLink="/home"></a>
+    <div class="options">
+      <button class="btn btn-primary">Option</button>
+      <button class="btn btn-primary">Option</button>
+      <button class="btn btn-primary">Option</button>
+      <div *ngIf="pedidofeito == true">
+        <button class="btn btn-primary" routerLink="/status_pedido"><img src="../../../assets/icons/BagCheckFill.svg" alt=""></button>
+      </div>
+      <div *ngIf="pedidofeito == false">
+        <button class="btn btn-primary" routerLink="/confirmar_pedido"><img src="../../../assets/icons/BagCheckFill.svg" alt=""></button>
+      </div>
+    </div>
+    <div class="empty-space-for-now"></div>
+  </div>
+</nav>
+<br><br><br><br>
+

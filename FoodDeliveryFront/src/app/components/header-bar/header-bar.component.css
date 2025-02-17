@@ -1,0 +1,23 @@
+/* #navzao{
+  max-width: 1920px;
+} */
+
+nav .container .logo-zone{
+  width:8rem;
+  height:5rem;
+  border:solid 2px black;
+}
+
+nav .container .options{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* border:solid 1px black */
+
+
+}
+
+nav .container  .empty-space-for-now{
+
+}
